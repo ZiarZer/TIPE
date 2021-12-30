@@ -677,7 +677,7 @@ class ChatPage(GridLayout):
 
         destinataire = self.destinataire
         message = self.new_message.text
-        
+
         if message[0]=="\n":
             message=message[1:]
         self.new_message.text = ""
@@ -687,7 +687,7 @@ class ChatPage(GridLayout):
             cursor = bdd.cursor()
 
             if type(user_info)==tuple:
-        
+
                 cursor.execute('''SELECT id_destinataires FROM ConvRecentesChat
                     WHERE user_id=?''',(user_info[0],))
                 try:
@@ -704,10 +704,10 @@ class ChatPage(GridLayout):
 
                 if str(destinataire[0]) in dests_user:
                     dests_user.remove(str(destinataire[0]))
-                
+
                 if str(user_info[0]) in dests_autre:
                     dests_autre.remove(str(user_info[0]))
-                
+
                 dests_user = ",".join([str(destinataire[0])] + dests_user)
                 dests_autre = ",".join([str(user_info[0])] + dests_autre)
 
@@ -727,7 +727,7 @@ class ChatPage(GridLayout):
             bdd.close()
 
         Clock.schedule_once(self.focus_text_input, 0.1)
-                
+
         self.historique.update_chat(f"[color=dd2020]Vous[/color] > {message}")
 
 class UserMarker(MapMarkerPopup):

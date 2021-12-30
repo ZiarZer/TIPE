@@ -38,7 +38,7 @@ def plus_proche_checkpoint(lat, lon):
 
     for k in range(1, len(CHECKPOINTS)):
         dist_checkpoint = distance_carre(lat, lon, CHECKPOINTS[k])
-        
+
         if dist_checkpoint<distance_min:
             distance_min, indice_plus_proche = dist_checkpoint, k
 
