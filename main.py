@@ -67,7 +67,7 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS Utilisateurs
                     nom TEXT NOT NULL,
                     prenom TEXT NOT NULL,
                     classe TEXT NOT NULL,
-                    mail TEXT NOT NULL, 
+                    mail TEXT NOT NULL,
                     mot_de_passe TEXT NOT NULL,
                     PRIMARY KEY(id AUTOINCREMENT))''')
 
@@ -79,9 +79,9 @@ class PosterDemandePage(GridLayout):
     def __init__(self, aller_ou_retour, **kwargs):
         global user_info
         global SEMAINE
-        
+
         super().__init__(**kwargs)
-        
+
         self.aller_ou_retour = aller_ou_retour
         self.DATE = datetime.today()
         self.HEURE = datetime.strptime("07:00:00", '%H:%M:%S').time()
@@ -184,7 +184,7 @@ class PosterDemandePage(GridLayout):
         elif date_heure < datetime.now():
             text_erreur = "Vous ne pouvez pas poster une demande pour un moment passé"
             MDDialog(title="Demande non postée", text=text_erreur).open()
-            bdd.close()            
+            bdd.close()
 
         else:
             if type(user_info) == tuple:
@@ -457,7 +457,7 @@ class MenuDemandesPage(GridLayout):
         self.btn_voir_reductions = Button(text = txt_btn)
         self.btn_voir_reductions.bind(on_press = self.voir_reductions)
         self.add_widget(self.btn_voir_reductions)
-        
+
         box_haut = BoxLayout(orientation = 'horizontal')
         box_bas = BoxLayout(orientation = 'horizontal')
 
